@@ -1,0 +1,10 @@
+/client/node_modules
+/client/build
+/server/node_modules
+/server/.env
+.env
+.setings
+/api-iaplantas/.venv
+/api-iaplantas/myenv
+
+
