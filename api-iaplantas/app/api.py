@@ -1,52 +1,39 @@
 from flask import Flask, request, jsonify
-from tensorflow import keras
-import tensorflow as tf
-
 from keras.api.models import load_model
 from keras.api.preprocessing import image
 import numpy as np
-import os
 
 app = Flask(__name__)
 
-# Obtener la ruta absoluta al directorio del script actual
-dir_actual = os.path.dirname(os.path.abspath(__file__))
+# Cargar el modelo entrenado
+model = load_model('model/modelo_plantas.keras')
 
-# Construir la ruta absoluta al archivo del modelo
-ruta_modelo = r"C:\Users\fuerz\aplicacion-de-plantas\api-iaplantas\model\modelo_plantas.h5"  # Asegúrate de que esta ruta sea correcta
+# Diccionario con las clases del PlantVillage Dataset (puedes agregar las clases según tu dataset)
+class_labels = ['Apple_scab', 'Apple_black_rot', 'Apple_healthy', 'Corn_healthy', 'Corn_blight', ...]  # Completa con todas las clases
 
-# Verificar si el archivo existe
-if not os.path.exists(ruta_modelo):
-    raise FileNotFoundError(f"El archivo del modelo no se encuentra en: {ruta_modelo}")
+# Función para preprocesar la imagen
+def preprocess_image(img_path):
+    img = image.load_img(img_path, target_size=(150, 150))
+    img_array = image.img_to_array(img)
+    img_array = np.expand_dims(img_array, axis=0)
+    img_array /= 255.  # Normalización
+    return img_array
 
-# Intentar cargar el modelo
-try:
-    print(f"Cargando modelo desde: {ruta_modelo}")
-    model = load_model(ruta_modelo)
-    print("Modelo cargado exitosamente")
-except Exception as e:
-    print(f"Error al cargar el modelo: {str(e)}")
-    raise
-
-@app.route('/api/predict', methods=['POST'])
+# Ruta para hacer predicciones
+@app.route('/predict', methods=['POST'])
 def predict():
     if 'file' not in request.files:
-        return jsonify({'error': 'No file provided'})
+        return jsonify({'error': 'No se ha cargado una imagen'}), 400
     
-    img = request.files['file']
-    img_path = 'temp/' + img.filename
-    img.save(img_path)
-
-    # Preprocesar la imagen
-    img = image.load_img(img_path, target_size=(150, 150))
-    img_array = image.img_to_array(img) / 255.0
-    img_array = np.expand_dims(img_array, axis=0)
-
-    # Realizar la predicción
+    file = request.files['file']
+    img_path = './temp_image.jpg'
+    file.save(img_path)
+    
+    img_array = preprocess_image(img_path)
     predictions = model.predict(img_array)
-    class_idx = np.argmax(predictions[0])
+    predicted_class = class_labels[np.argmax(predictions[0])]
+    
+    return jsonify({'prediction': predicted_class})
 
-    return jsonify({'class_index': class_idx})
-
-if __name__ == "__main__":
+if __name__ == '__main__':
     app.run(debug=True)

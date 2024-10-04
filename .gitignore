@@ -6,5 +6,5 @@
 .setings
 /api-iaplantas/.venv
 /api-iaplantas/myenv
-
+.venv
 
