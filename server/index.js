@@ -2,6 +2,8 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
+const path = require('path'); 
+const fs = require('fs');
 require('dotenv').config(); 
 
 const app = express();
@@ -17,7 +19,7 @@ app.get('/', (req, res) => {
     res.send('Servidor funcionando');
 });
 
-// definir rutas de plantas
+// Definir rutas de plantas
 const plantasRoute = require('./routes/plantas');
 app.use('/api/plantas', plantasRoute);
 
@@ -25,7 +27,7 @@ app.use('/api/plantas', plantasRoute);
 const imagenesRoute = require('./routes/images');
 app.use('/api/imagenes', imagenesRoute);
 
-// conectar a MongoDB
+// Conectar a MongoDB
 mongoose.connect(process.env.MONGODB_URI)
     .then(() => {
         console.log('Conectado a MongoDB');
@@ -36,18 +38,9 @@ mongoose.connect(process.env.MONGODB_URI)
     })
     .catch(err => console.error('Error de conexión a MongoDB:', err));
 
-const path = require('path');
-const fs = require('fs');
-
-const uploadsDir = path.join(__dirname, 'uploads');
-if (!fs.existsSync(uploadsDir)){
-    fs.mkdirSync(uploadsDir);
-}
-
 // Después de definir todas tus rutas
 app._router.stack.forEach(function(r){
     if (r.route && r.route.path){
-        console.log(r.route.path)
+        console.log(r.route.path);
     }
 });
-

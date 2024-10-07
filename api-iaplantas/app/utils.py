@@ -4,7 +4,7 @@ import keras as tf
 from keras.api.preprocessing.image import load_img, img_to_array
 
 def predict_image(model, img_path):
-    img = load_img(img_path, target_size=(150, 150))
+    img = load_img(img_path, target_size=None)
     img_array = img_to_array(img)
     img_array = np.expand_dims(img_array, axis=0) / 255.0
 

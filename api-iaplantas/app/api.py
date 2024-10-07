@@ -1,5 +1,5 @@
 from flask import Flask, request, jsonify
-from keras.api.models import load_model
+from tensorflow.python.keras.models import load_model
 from keras.api.preprocessing import image
 import numpy as np
 
@@ -8,12 +8,12 @@ app = Flask(__name__)
 # Cargar el modelo entrenado
 model = load_model('model/modelo_plantas.keras')
 
-# Diccionario con las clases del PlantVillage Dataset (puedes agregar las clases según tu dataset)
-class_labels = ['Apple_scab', 'Apple_black_rot', 'Apple_healthy', 'Corn_healthy', 'Corn_blight', ...]  # Completa con todas las clases
+# Diccionario con las clases del PlantVillage Dataset
+class_labels = ['Apple_scab', 'Apple_black_rot', 'Apple_healthy', 'Corn_healthy', 'Corn_blight' ]  
 
 # Función para preprocesar la imagen
 def preprocess_image(img_path):
-    img = image.load_img(img_path, target_size=(150, 150))
+    img = image.load_img(img_path, target_size=None)
     img_array = image.img_to_array(img)
     img_array = np.expand_dims(img_array, axis=0)
     img_array /= 255.  # Normalización

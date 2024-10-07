@@ -1,3 +1,4 @@
+// models\Image.js
 const mongoose = require('mongoose');
 
 const ImagenSchema = new mongoose.Schema({

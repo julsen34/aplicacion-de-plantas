@@ -11,7 +11,7 @@ const PlantasList = () => {
     useEffect(() => {
         const fetchPlantas = async () => {
             try {
-                const response = await axios.get('http://localhost:5000/api/plantas');
+                const response = await axios.get('http://localhost:5000/api/iaplantas');
                 setPlantas(response.data);
                 setLoading(false);
             } catch (err) {
