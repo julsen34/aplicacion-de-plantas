@@ -7,8 +7,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-public class UserDAO {
-    private static final String URL = "jdbc:sqlite:C:/ruta/a/tu/database.db"; // Cambia la ruta a tu base de datos SQLite
+public class UserDAD {
 
     // Método para registrar un usuario en la base de datos
     public boolean registerUser(User user) {
