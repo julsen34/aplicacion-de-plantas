@@ -11,7 +11,7 @@ const PlantAnalysis = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get('http://localhost:5000/api/iaplantas');
+                const response = await axios.get('http://localhost:5000/predict');
                 setData(response.data);
             } catch (err) {
                 setError(err);

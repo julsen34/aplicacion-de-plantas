@@ -25,7 +25,7 @@ const ImageUpload = () => {
         formData.append('file', file);
 
         try {
-            await axios.post('http://localhost:5000/api/imagenes', formData, {
+            await axios.post('http://localhost:5000/predict', formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                 },

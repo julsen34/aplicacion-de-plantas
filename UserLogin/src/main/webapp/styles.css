@@ -1,0 +1,256 @@
+@charset "UTF-8";
+
+/* Colores y variables */
+body {
+    font-family: "Ubuntu", Arial, sans-serif; /* Fuente principal */
+    margin: 0;
+    padding: 0;
+    background-color: #f0f8ff; /* Azul claro */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    background-color: #008000; /* Verde */
+    color: #fff;
+    padding: 1rem;
+    text-align: center;
+}
+
+main {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    text-align: center;
+}
+
+.contenedor-formularios {
+    background-color: #fff; /* Fondo blanco para el formulario */
+    padding: 40px;
+    max-width: 600px;
+    margin: 40px auto; /* Centrar el contenedor */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+}
+
+.contenedor-tabs {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 40px 0;
+}
+
+.contenedor-tabs:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.contenedor-tabs li a {
+    display: block;
+    text-decoration: none;
+    padding: 15px;
+    background: rgba(160, 179, 176, 0.25); /* Fondo claro para las pestañas */
+    color: #1ab188; /* Color del texto de las pestañas */
+    font-size: 20px;
+    float: left;
+    width: 50%;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.5s ease;
+}
+
+.contenedor-tabs li a:hover {
+    background: #179b75; /* Color de fondo oscuro en hover */
+    color: #fff; /* Texto blanco en hover */
+}
+
+.active a {
+    background: #1ab188; /* Color de fondo activo */
+    color: #fff; /* Texto blanco activo */
+}
+
+.contenido-tab > div:last-child {
+    display: none;
+}
+
+h1 {
+    text-align: center;
+    color: #1ab188; /* Color del título */
+    font-weight: 300; /* Grosor de fuente del título */
+    margin: 0 0 40px;
+}
+
+label {
+    position: absolute;
+    transform: translateY(6px);
+    left: 13px;
+    color: rgba(255, 255, 255, 0.5); /* Color de la etiqueta */
+    transition: all 0.25s ease;
+    pointer-events: none;
+    font-size: 22px;
+}
+
+label .req {
+    margin: 2px;
+    color: #1ab188; /* Color de la etiqueta requerida */
+}
+
+label.active {
+    transform: translateY(50px);
+    left: 2px;
+    font-size: 14px;
+}
+
+label.highlight {
+    color: #fff; /* Color de la etiqueta en estado resaltado */
+}
+
+input {
+    font-size: 22px;
+    display: block;
+    width: 100%;
+    height: 100%;
+    padding: 5px 10px;
+    background: #fff; /* Fondo blanco para los inputs */
+    border: 1px solid #a0b3b0; /* Borde claro */
+    color: #333; /* Color del texto */
+    border-radius: 5px; /* Bordes redondeados */
+    transition: all 0.5s ease;
+}
+
+input:focus {
+    outline: none;
+    border-color: #1ab188; /* Borde verde al enfocar */
+}
+
+.contenedor-input {
+    position: relative;
+    margin-bottom: 40px;
+}
+
+.fila-arriba:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.fila-arriba div {
+    float: left;
+    width: 48%;
+    margin-right: 4%;
+}
+
+.fila-arriba div:last-child {
+    margin-right: 0;
+}
+
+.button {
+    border: 0;
+    outline: none;
+    border-radius: 25px; /* Bordes muy redondeados */
+    cursor: pointer;
+    padding: 15px 0;
+    font-size: 2rem;
+    background: #1ab188; /* Fondo verde */
+    color: #fff; /* Texto blanco */
+    transition: all 0.5s ease;
+}
+
+.button:hover,
+.button:focus {
+    background: #179b75; /* Verde oscuro en hover */
+}
+
+.button-block {
+    display: block;
+    width: 100%;
+}
+
+.forgot {
+    margin-top: -20px;
+    text-align: right;
+    margin-bottom: 20px;
+}
+
+section#formulario {
+    background-color: #fff; /* Fondo blanco */
+    padding: 2rem; /* Espaciado interno */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra */
+}
+
+section#formulario form {
+    display: flex;
+    flex-direction: column; /* Colocar los elementos verticalmente */
+}
+
+section#formulario label {
+    margin: 1rem 0 0.5rem;
+    text-align: left; /* Alinear texto a la izquierda */
+}
+
+section#formulario input {
+    padding: 0.5rem; /* Espaciado interno */
+    margin-bottom: 1rem; /* Espacio inferior */
+    border: 1px solid #ccc; /* Borde claro */
+    border-radius: 4px; /* Bordes redondeados */
+}
+
+section#formulario button {
+    padding: 0.75rem; /* Espaciado interno */
+    background-color: #008000; /* Verde */
+    color: #fff; /* Texto blanco */
+    border: none; /* Sin borde */
+    border-radius: 4px; /* Bordes redondeados */
+    cursor: pointer; /* Cambiar cursor a mano */
+    font-size: 1rem; /* Tamaño de fuente */
+}
+
+section#formulario button:hover {
+    background-color: #006400; /* Verde más oscuro */
+}
+
+section#formulario p {
+    margin-top: 1rem; /* Espacio superior */
+    font-size: 1rem; /* Tamaño de fuente */
+}
+
+section#formulario a {
+    color: #008000; /* Verde */
+    text-decoration: none; /* Sin subrayado */
+}
+
+section#formulario a:hover {
+    text-decoration: underline; /* Subrayar en hover */
+}
+
+footer {
+    background-color: #008000; /* Verde */
+    color: #fff; /* Texto blanco */
+    text-align: center; /* Centrar texto */
+    padding: 1rem; /* Espaciado interno */
+    position: fixed; /* Fijo al fondo */
+    bottom: 0; /* Ubicado en el fondo */
+    width: 100%; /* Ancho completo */
+}
+
+/* Mediaqueries */
+@media screen and (max-width: 500px) {
+    .fila-arriba div {
+        width: 100%; /* Colocar elementos en una sola columna */
+    }
+
+    .fila-arriba div:last-child {
+        margin-bottom: 40px; /* Espacio inferior */
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .contenedor-tabs li a {
+        width: 100%; /* Ancho completo para las pestañas en pantallas pequeñas */
+    }
+}
+

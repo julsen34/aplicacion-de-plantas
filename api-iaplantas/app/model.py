@@ -47,7 +47,7 @@ def train_model(model, dataset_path):
 
 # Entrenamiento del modelo
 if __name__ == "__main__":
-    dataset_path = r'C:\Users\fuerz\Plantas'  
+    dataset_path = r'C:\Users\fuerz\aplicacion-de-plantas\.plantas\PlantVillage-Dataset-master'  
     model = create_model()
     model = train_model(model, dataset_path)
     model.save('model/modelo_plantas.keras')
