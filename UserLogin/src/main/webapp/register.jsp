@@ -1,42 +1,56 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css" >
+    <!-- Enlace a los estilos externos -->
+    <link rel="stylesheet" type="text/css" href="css/register.css">
+    <!-- Fuente de Google -->
     <link href="https://fonts.googleapis.com/css?family=Raleway|Ubuntu" rel="stylesheet">
-    <title>Nuevo Usuario</title>
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Registrarse</title>
 </head>
 <body>
-    <div class="container mt-5">
+    <!-- Cabecera -->
+    <div class="header">
+        <h2>Registrarse</h2>
+    </div>
 
-        <!-- Registrarse -->
-        <div id="registrarse" class="mt-4">
+    <!-- Contenedor de formularios -->
+    <div class="register-container">
+        <!-- Formulario de registro -->
+        <div id="registrarse">
             <h1>Registrarse</h1>
-            <form>
+            <form action="register" method="post">
                 <div class="mb-3">
-                    <label for="username" class="form-label"><span class="text-danger"></span></label>
-                    <input type="text" name="username" id="username" class="form-control" placeholder="nombre completo" required>
+                    <label for="username" class="form-label">Nombre Completo</label>
+                    <input type="text" name="username" id="username" class="form-control" placeholder="Nombre Completo" required>
                 </div>
+
                 <div class="mb-3">
-                    <label for="email" class="form-label"><span class="text-danger"></span></label>
-                    <input type="email" name="email" id="email" class="form-control" placeholder="email" required>
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" name="email" id="email" class="form-control" placeholder="Correo Electrónico" required>
                 </div>
+
                 <div class="mb-3">
-                    <label for="password" class="form-label"><span class="text-danger"></span></label>
+                    <label for="password" class="form-label">Contraseña</label>
                     <input type="password" name="password" id="password" class="form-control" placeholder="Contraseña" required>
                 </div>
+
                 <div class="mb-3">
-                    <label for="confirm_password" class="form-label"><span class="text-danger"></span></label>
-                    <input type="password" name="confirm_password" id="confirm_password" class="form-control" placeholder="Repetir contraseña" required>
+                    <label for="confirm_password" class="form-label">Repetir Contraseña</label>
+                    <input type="password" name="confirm_password" id="confirm_password" class="form-control" placeholder="Repetir Contraseña" required>
                 </div>
-                <button type="submit" value="Registrarse">Registrarse</button>
+
+                <button type="submit" class="btn btn-success w-100">Registrarse</button>
             </form>
+            <p>ya tienes un usuario? <a href="login.jsp">iniciar secion</a></p>
         </div>
     </div>
 
+    <!-- Verificación de contraseñas -->
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             const registerForm = document.querySelector('#registrarse form');
@@ -51,5 +65,13 @@
             });
         });
     </script>
+
+    <!-- Pie de página -->
+    <div class="footer">
+        © 2024 Análisis de Imágenes para el Crecimiento de Plantas
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

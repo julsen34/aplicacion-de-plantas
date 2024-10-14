@@ -1,8 +1,46 @@
-body {
-    background-color: white;
-}
+  /* Estilos generales */
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
 
-h1, h2 {
-    color: green;
-    background-color: green;
-}
+  .App {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* La página ocupará al menos toda la altura de la ventana */
+  }
+
+  .container {
+    flex: 1; /* Asegura que el contenido principal ocupe el espacio restante */
+  }
+  
+  #root {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  
+  /* Contenedor principal */
+  .main-content {
+    flex: 1;
+    display: flex;
+    justify-content: center;  /* Centrar horizontalmente */
+    align-items: center;      /* Centrar verticalmente */
+    text-align: center;       /* Opcional: Centrar el texto */
+    padding: 20px;
+  }
+  
+  footer {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+  }
+  
+  
