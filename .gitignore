@@ -4,8 +4,7 @@
 /server/.env
 .env
 .setings
-/api-iaplantas/.venv
-/api-iaplantas/myenv
+/myenv
 .venv
 .plantas
 
