@@ -6,19 +6,32 @@ import java.sql.SQLException;
 
 public class DatabaseConnection {
 
-	public static  Connection connection = null;
-	
-	public static Connection getconnection() throws SQLException {
-		if (connection == null) {
-    try {
-    	String url = "jdbc:sqlite: c:/sqlite/application.db";
-    	connection = DriverManager.getConnection(url);
-    	}catch(SQLException e) {
-    		throw new SQLException("ha habido un error al conectar con la base de datos", e);
-    	}
-    }
-		return connection;
-	}
-	
-}
+    private static Connection connection = null;
+    private static final String URL = "jdbc:sqlite:C:/sqlite/application.db";
+    private static final String DRIVER = "org.sqlite.JDBC";
 
+    public static Connection getConnection() throws SQLException {
+        if (connection == null) {
+            try {
+                Class.forName(DRIVER);
+                connection = DriverManager.getConnection(URL);
+                System.out.println("Conexión establecida con la base de datos.");
+            } catch (ClassNotFoundException e) {
+                throw new SQLException("No se encontró el driver JDBC para SQLite.", e);
+            }
+        }
+        return connection;
+    }
+
+    public static void closeConnection() {
+        if (connection != null) {
+            try {
+                connection.close();
+                connection = null;
+                System.out.println("Conexión cerrada.");
+            } catch (SQLException e) {
+                System.err.println("Error cerrando la conexión: " + e.getMessage());
+            }
+        }
+    }
+}

@@ -23,6 +23,17 @@
         <!-- Formulario de registro -->
         <div id="registrarse">
             <h1>Registrarse</h1>
+
+            <!-- Mostrar mensaje de error si el registro falla -->
+            <%
+                String errorMessage = (String) request.getAttribute("errorMessage");
+                if (errorMessage != null) {
+            %>
+                <p style="color: red;"><%= errorMessage %></p>
+            <%
+                }
+            %>
+
             <form action="register" method="post">
                 <div class="mb-3">
                     <label for="username" class="form-label">Nombre Completo</label>
@@ -46,7 +57,7 @@
 
                 <button type="submit" class="btn btn-success w-100">Registrarse</button>
             </form>
-            <p>ya tienes un usuario? <a href="login.jsp">iniciar secion</a></p>
+            <p>¿Ya tienes un usuario? <a href="login.jsp">Iniciar sesión</a></p>
         </div>
     </div>
 
@@ -75,3 +86,4 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
+

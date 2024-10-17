@@ -1,0 +1,108 @@
+@charset "UTF-8";
+
+/* Colores y variables */
+body {
+    font-family: "Ubuntu", Arial, sans-serif; /* Fuente principal */
+    margin: 0;
+    padding: 0;
+    background-color: #f0f8ff; /* Azul claro */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    background-color: #008000; /* Verde */
+    color: #fff;
+    padding: 1.5rem;
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+main {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    text-align: center;
+}
+
+.contenedor-formularios {
+    background-color: #fff; /* Fondo blanco para el formulario */
+    padding: 40px;
+    max-width: 400px;
+    margin: 20px auto; /* Centrar el contenedor */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+    text-align: left;
+}
+
+h1 {
+    text-align: center;
+    color: #008000; /* Verde */
+    font-weight: 400; /* Grosor de fuente del título */
+    margin: 0 0 20px;
+}
+
+label {
+    margin-bottom: 10px;
+    display: block;
+    color: #333;
+    font-size: 1rem;
+}
+
+input {
+    font-size: 1rem;
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background: #fff; /* Fondo blanco para los inputs */
+    border: 1px solid #ccc; /* Borde claro */
+    color: #333; /* Color del texto */
+    border-radius: 4px; /* Bordes redondeados */
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
+}
+
+input:focus {
+    outline: none;
+    border-color: #008000; /* Borde verde al enfocar */
+}
+
+button {
+    border: 0;
+    outline: none;
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer;
+    padding: 10px 0;
+    font-size: 1rem;
+    background: #008000; /* Verde */
+    color: #fff; /* Texto blanco */
+    width: 100%;
+    transition: all 0.3s ease;
+}
+
+button:hover,
+button:focus {
+    background: #006400; /* Verde oscuro en hover */
+}
+
+footer {
+    background-color: #008000; /* Verde */
+    color: #fff; /* Texto blanco */
+    text-align: center; /* Centrar texto */
+    padding: 1rem; /* Espaciado interno */
+    position: fixed; /* Fijo al fondo */
+    bottom: 0; /* Ubicado en el fondo */
+    width: 100%; /* Ancho completo */
+}
+
+a {
+    color: #008000;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}

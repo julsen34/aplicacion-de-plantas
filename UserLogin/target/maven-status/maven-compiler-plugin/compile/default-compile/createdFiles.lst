@@ -1,0 +1,5 @@
+controller\LoginServlet.class
+com\example\DatabaseConnection.class
+com\example\UserDAO.class
+controller\RegisterServlet.class
+model\User.class
