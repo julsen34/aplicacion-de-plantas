@@ -38,4 +38,15 @@
     <url-pattern>/login</url-pattern>
   </servlet-mapping>
 
+  <!-- UserLoginServlet -->
+  <servlet>
+    <servlet-name>UserLoginServlet</servlet-name>
+    <servlet-class>controller.UserLoginServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>UserLoginServlet</servlet-name>
+    <url-pattern>/UserLogin</url-pattern>
+  </servlet-mapping>
+
 </web-app>

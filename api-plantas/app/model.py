@@ -15,7 +15,7 @@ def create_model():
         layers.MaxPooling2D(pool_size=(2, 2)),
         layers.Flatten(),
         layers.Dense(128, activation='relu'),
-        layers.Dense(38, activation='softmax') 
+        layers.Dense(38, activation='softmax')  
     ])
 
     model.compile(optimizer='adam',
@@ -52,7 +52,7 @@ def train_model(model, dataset_path):
 
 # Entrenamiento del modelo
 if __name__ == "__main__": 
-    dataset_path = r'C:\Users\fuerz\aplicacion-de-plantas\.plantas\PlantVillage-Dataset-master'  # Ruta a tu dataset
+    dataset_path = r'C:\Users\fuerz\aplicacion-de-plantas\.plantas\PlantVillage-Dataset'  # Ruta a tu dataset
     model = create_model()  # Crear el modelo
     model = train_model(model, dataset_path)  # Entrenar el modelo
     model.save('model/modelo_plantas.keras')  # Guardar el modelo entrenado
